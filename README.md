@@ -16,13 +16,13 @@ To get basic idea about configuration approach read [Configuration in ASP.NET Co
 Authentication is implemented using [IdentityServer4](https://identityserver4.readthedocs.io/en/latest/) and [JWT token standard](https://jwt.io/) implementing both password and client credentials flow. More details about [OAuth2 Standard](https://oauth.net/2/).
 
 ### Automatic API Documentation
-We are generating API documentation with [Swagger UI](https://swagger.io/)
+We are generating API documentation with [Swagger UI](https://swagger.io/).
 
 ### Application Logs
 [App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) are used as sink for application logs.
 
 ### Continuous Integration
-For CI/CD we are using [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) and [Azure App Services](https://azure.microsoft.com/en-us/services/app-service/)
+For CI/CD we are using [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) and [Azure App Services](https://azure.microsoft.com/en-us/services/app-service/).
 
 ### Relational database management system
 [Azure SQL Database](https://azure.microsoft.com/en-us/products/azure-sql/database/) is used as database provider.
