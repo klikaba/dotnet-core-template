@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Klika.ResourceApi.Database\Klika.ResourceApi.Database.csproj" />
+    <ProjectReference Include="..\Klika.ResourceApi.Model\Klika.ResourceApi.Model.csproj" />
+    <ProjectReference Include="..\Klika.ResourceApi.Repository\Klika.ResourceApi.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
