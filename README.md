@@ -19,7 +19,7 @@ Authentication is implemented using [IdentityServer4](https://identityserver4.re
 We are generating API documentation with [Swagger UI](https://swagger.io/).
 
 ### Application Logs
-[App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) are used as sink for application logs.
+[App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) is used as sink for application logs.
 
 ### Continuous Integration
 For CI/CD we are using [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) and [Azure App Services](https://azure.microsoft.com/en-us/services/app-service/).
