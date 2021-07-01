@@ -30,8 +30,8 @@ For CI/CD we are using [Azure Devops](https://azure.microsoft.com/en-us/services
 ### Cryptographic keys and secrets
 [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) is used as storage for secrets.
 
-### Azure services authentication
-[Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) is used as mechanism for authentication to azure services without using credentials.
+### Azure service authentication
+[Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) is used as mechanism for authentication to azure services without using any credentials.
 
 ## Maintainers
 
