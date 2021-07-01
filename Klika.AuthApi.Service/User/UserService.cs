@@ -41,14 +41,15 @@ namespace Klika.AuthApi.Service.User
             try
             {
                 ApplicationUser applicationUser = _mapper.Map<ApplicationUserDTO, ApplicationUser>(user);
-                var identityResult = await _userManager.CreateAsync(applicationUser, user.Password);
+                var identityResult = await _userManager.CreateAsync(applicationUser, user.Password).ConfigureAwait(false);
 
                 if (identityResult.Succeeded)
                 {
                     await _userManager.AddClaimsAsync(applicationUser, new List<Claim>() {
                         new Claim("email", applicationUser.Email)
-                    });
-                    await _userManager.AddToRolesAsync(applicationUser, new List<string>() { "admin" }); // Define user roles on registration
+                    }).ConfigureAwait(false);
+                    await _userManager.AddToRolesAsync(applicationUser, new List<string>() { "admin" })
+                                      .ConfigureAwait(false); // Define user roles on registration
                 }
 
                 return identityResult;
@@ -81,7 +82,7 @@ namespace Klika.AuthApi.Service.User
                             Scope = tokenRequest.Scope,
                             UserName = tokenRequest.Username,
                             Password = tokenRequest.Password
-                        });
+                        }).ConfigureAwait(false);
                         return passwordFlow;
                     case "client_credentials":
                         var clientCredentialsFlow = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest()
@@ -90,7 +91,7 @@ namespace Klika.AuthApi.Service.User
                             ClientId = tokenRequest.ClientId,
                             ClientSecret = tokenRequest.ClientSecret,
                             Scope = tokenRequest.Scope,
-                        });
+                        }).ConfigureAwait(false);
                         return clientCredentialsFlow;
                     default:
                         throw new Exception("grant_type is not supported");
@@ -121,7 +122,7 @@ namespace Klika.AuthApi.Service.User
                     ClientId = tokenRequest.ClientId,
                     ClientSecret = tokenRequest.ClientSecret,
                     RefreshToken = tokenRequest.RefreshToken
-                });
+                }).ConfigureAwait(false);
                 return refreshToken;
             }
             catch (Exception ex)
@@ -148,7 +149,7 @@ namespace Klika.AuthApi.Service.User
                     ClientId = tokenRequest.ClientId,
                     ClientSecret = tokenRequest.ClientSecret,
                     Token = tokenRequest.RefreshToken
-                });
+                }).ConfigureAwait(false);
                 return revokeResult;
             }
             catch (Exception ex)

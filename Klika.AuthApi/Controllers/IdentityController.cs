@@ -33,7 +33,8 @@ namespace Klika.AuthApi.Controllers
         {
             try
             {
-                IdentityResult result = await _userService.Register(user);
+                IdentityResult result = await _userService.Register(user)
+                                                          .ConfigureAwait(false);
 
                 if (result.Succeeded)
                     return Ok(result);
@@ -52,7 +53,8 @@ namespace Klika.AuthApi.Controllers
         {
             try
             {
-                TokenResponse result = await _userService.Token(tokenRequest);
+                TokenResponse result = await _userService.Token(tokenRequest)
+                                                        .ConfigureAwait(false);
                 if (!result.IsError)
                     return Ok(result.Json);
                 return Conflict(result.Json);
@@ -70,7 +72,8 @@ namespace Klika.AuthApi.Controllers
         {
             try
             {
-                TokenResponse result = await _userService.RefreshToken(tokenRequest);
+                TokenResponse result = await _userService.RefreshToken(tokenRequest)
+                                                         .ConfigureAwait(false);
                 if (!result.IsError)
                     return Ok(result.Json);
                 return Conflict(result.Json);
@@ -88,7 +91,8 @@ namespace Klika.AuthApi.Controllers
         {
             try
             {
-                TokenRevocationResponse result = await _userService.RevokeToken(tokenRequest);
+                TokenRevocationResponse result = await _userService.RevokeToken(tokenRequest)
+                                                                   .ConfigureAwait(false);
                 if (!result.IsError)
                     return Ok();
                 return Conflict(result.Json);
